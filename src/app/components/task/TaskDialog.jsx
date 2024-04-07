@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import qs from 'qs'
 import { Badge, Dialog, Heading, Pane, Paragraph, Pill, majorScale } from 'evergreen-ui'
 
@@ -9,7 +9,7 @@ import TextWithLabel from '../input/TextWithLabel'
 import UserId from '../user/UserId'
 
 const TaskDialog = ({ id, assignee, title, description, points, status, lastUpdate, actions }) => {
-  const history = useHistory()
+  const history = useNavigate()
 
   return <Dialog
     isShown={true}

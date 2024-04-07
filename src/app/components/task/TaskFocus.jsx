@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import qs from 'qs'
 
 import useQuery from '../../hooks/useQuery'
@@ -11,7 +11,7 @@ import UpdateTaskDialog from './UpdateTaskDialog'
 
 const TaskFocus = ({ tasks, onOperationInvokationSuccess }) => {
   const { taskFocus, actionFocus } = useQuery()
-  const history = useHistory()
+  const history = useNavigate()
 
   if (tasks === undefined || taskFocus === undefined) {
     return null

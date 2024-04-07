@@ -1,6 +1,7 @@
 import React from 'react'
-import { BrowserRouter as Router, withRouter } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css'
+import { useNavigate } from 'react-router';
 
 import AppRouter from './AppRouter'
 import { AppContextProvider } from './app/context/AppContext'
@@ -19,6 +20,13 @@ function App() {
     </div>
   );
 }; 
+export const withRouter = (Component) =>{
+  const Wrapper = (props) =>{
+      const history = useNavigate();
+      return <Component history={history} {...props}/>
+  } 
+  return Wrapper;
+}
 
 class AppProxy extends React.Component {
 

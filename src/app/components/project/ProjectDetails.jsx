@@ -1,5 +1,5 @@
 import React, { useEffect, useState }  from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Button, Heading, Pane, Text, TextInputField, majorScale, minorScale } from 'evergreen-ui'
 
 import { capitalize, spaceCamelCaseWord } from '../../utils/javascriptUtils'
@@ -19,7 +19,7 @@ import { TaskTypes } from '../../domain/Task'
 const ProjectDetails = ({ title, isArchived, projectId, refreshProjectFct }) => {
   const operations = [ 'Archive', 'Unarchive', 'Add Collaborator', 'Delete', 'Create technical story', 'Create user story' ]
   const [ operationFocus, setOperationFocus ] = useState()
-  const history = useHistory()
+  const history = useNavigate()
 
   return <>
     <Pane display="flex" flexDirection="row" justifyContent="space-between" width="100%" overflow="hidden" marginBottom={majorScale(4)}>

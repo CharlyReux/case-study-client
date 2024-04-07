@@ -1,10 +1,10 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Pane, Paragraph, Pill, majorScale, minorScale } from 'evergreen-ui'
 import qs from 'qs'
 
 const TaskCard = ({id, title, points}) => {
-  const history = useHistory()
+  const history = useNavigate()
 
   return <Pane 
     className="clickable"

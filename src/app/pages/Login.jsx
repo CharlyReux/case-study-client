@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Alert, Dialog, Heading, Pane, Spinner, TextInput, majorScale } from 'evergreen-ui';
 
 import AuthenticationService from '../services/AuthenticationService';
@@ -18,8 +18,8 @@ function Login() {
 };
 
 const AlreadyLoggedIn = () => {
-  const history = useHistory();
-  setTimeout(() => history.push('/'), 1000);
+  const navigate = useNavigate();
+  setTimeout(() => navigate('/'), 1000);
 
   return (
     <FullscreenCenterContainer>
@@ -32,10 +32,10 @@ const AlreadyLoggedIn = () => {
 const LoginComponent = () => {
   const redirectTo = new URLSearchParams(window.location.search).get('redirectTo')
   const [ success, setSuccess ] = useState(false)
-  const history = useHistory();
+  const navigate = useNavigate();
 
   if (success) {
-    setTimeout(() => history.push(redirectTo || '/'), 1000);
+    setTimeout(() => navigate(redirectTo || '/'), 1000);
     return <FullscreenCenterContainer>
       <Heading width="100%" size={700} marginBottom={majorScale(2)}>You are now successfully logged in <span role='img' aria-label='byebye'>👋</span></Heading>
     </FullscreenCenterContainer>

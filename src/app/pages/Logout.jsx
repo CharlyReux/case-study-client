@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, Redirect } from 'react-router-dom';
+import { useNavigate,redirect } from 'react-router-dom';
 import { Heading, Spinner, Paragraph, Pane, majorScale } from 'evergreen-ui';
 
 import AuthenticationService from '../services/AuthenticationService';
@@ -9,14 +9,14 @@ import useFetch from '../hooks/useFetch';
 
 function Logout() {
   if (!AuthenticationService.isAuthenticated()) {
-    return <Redirect to="/" />
+    redirect("/");
   }
   
   return <FullscreenCenterContainer><LogoutDialog /></FullscreenCenterContainer>
 };
 
 const LogoutDialog = () => {
-  const history = useHistory();
+  const history = useNavigate();
   const { makeCall, isLoading, success, data, error } = useFetch(() => AuthenticationService.logout())
 
   if (isLoading) {

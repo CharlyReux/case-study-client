@@ -1,13 +1,12 @@
 import React from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Avatar, IconButton, Menu, Popover, Position, Tooltip } from 'evergreen-ui'
 
 import { useAppContextState } from '../../context/AppContext';
 import AuthenticationService from '../../services/AuthenticationService';
-import Semantics from '../../utils/semantics';
 
 const UserProfileBubble = () => {
-  const history = useHistory();
+  const history = useNavigate();
   const context = useAppContextState();
   const { userProfile } = context;
 
